@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 // aREST
-var arest = require("arest")(app);
+var rest = require("arest")(app);
 
 // Use public directory
 app.use(express.static('public'));
