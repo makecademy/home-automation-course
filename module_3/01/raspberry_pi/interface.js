@@ -7,8 +7,8 @@ var app = express();
 // aREST
 var rest = require("arest")(app);
 
-// Use public directory
-app.use(express.static('public'));
+// Set public folder
+app.use(express.static(__dirname + '/public'));
 
 // Routes
 app.get('/', function (req, res) {
