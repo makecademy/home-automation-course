@@ -20,6 +20,7 @@ var rest = require("arest")(app);
 // Add device
 rest.addDevice('http','192.168.0.104');
 rest.addDevice('http','192.168.0.105');
+rest.addDevice('http','192.168.0.106');
 
 // Automation
 setInterval(function() {

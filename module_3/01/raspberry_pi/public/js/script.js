@@ -9,6 +9,7 @@ $( document ).ready(function() {
     // Set lamp ON
     $.get('/lamp/digital/5/1');
 
+
   });
 
   $( "#off" ).click(function() {

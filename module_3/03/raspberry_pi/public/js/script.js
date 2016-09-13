@@ -1,5 +1,21 @@
 $( document ).ready(function() {
 
+   // Buttons
+  $( "#on" ).click(function() {
+
+    // Set lamp ON
+    $.get('/lamp_control/digital/5/1');
+
+
+  });
+
+  $( "#off" ).click(function() {
+
+    // Set lamp OFF
+    $.get('/lamp_control/digital/5/0');
+
+  });
+
   // Indicators
   setInterval(function () {
 
