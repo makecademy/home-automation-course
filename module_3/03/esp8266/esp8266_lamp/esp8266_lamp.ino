@@ -6,8 +6,8 @@
 aREST rest = aREST();
 
 // WiFi parameters
-const char* ssid = "Jarex_5A";
-const char* password = "connect1337";
+const char* ssid = "your-wifi-ssid";
+const char* ssid = "your-wifi-password";
 
 // The port to listen for incoming TCP connections 
 #define LISTEN_PORT           80
@@ -22,7 +22,7 @@ void setup(void)
   
   // Give name and ID to device
   rest.set_id("1");
-  rest.set_name("lamp");
+  rest.set_name("lamp_control");
   
   // Connect to WiFi
   WiFi.begin(ssid, password);

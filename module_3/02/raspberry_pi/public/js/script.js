@@ -4,9 +4,9 @@ $( document ).ready(function() {
   setInterval(function () {
 
     // Current
-    $.get('/motion_sensor/5', function(data) {
+    $.get('/motion_sensor/digital/5', function(data) {
 
-      if (data.return_value == true) {
+      if (data.return_value == false) {
         $( "#motion-status" ).text("No Motion");
       }
       else {

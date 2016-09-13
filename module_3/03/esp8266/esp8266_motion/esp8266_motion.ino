@@ -6,8 +6,8 @@
 aREST rest = aREST();
 
 // WiFi parameters
-const char* ssid = "Jarex_5A";
-const char* password = "connect1337";
+const char* ssid = "your-wifi-ssid";
+const char* ssid = "your-wifi-password";
 
 // The port to listen for incoming TCP connections 
 #define LISTEN_PORT           80
