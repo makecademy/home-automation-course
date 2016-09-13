@@ -16,19 +16,24 @@ $( document ).ready(function() {
 
   });
 
-  // Indicators
   setInterval(function () {
 
-    // Current
-    $.get('/motion_sensor/5', function(data) {
+    // Temperature
+    $.get('/sensors/temperature', function(data) {
 
-      if (data.return_value == true) {
-        $( "#motion-status" ).text("No Motion");
-      }
-      else {
-        $( "#motion-status" ).text("Motion Detected");
-      }
+      $( "#temperature-status" ).text(data.temperature);
+   
+    });
 
+  }, 2000);
+
+  setInterval(function () {
+
+    // Temperature
+    $.get('/sensors/humidity', function(data) {
+
+      $( "#humidity-status" ).text(data.humidity);
+   
     });
 
   }, 2000);
