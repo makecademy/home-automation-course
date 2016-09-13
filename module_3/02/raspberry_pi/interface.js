@@ -32,23 +32,25 @@ setInterval(function() {
 
     motionSensor.digitalRead(5, function (error, response, body) {
 
-      // If motion was detected
-      if (body.return_value == true) {
+      if (!err) {
+        // If motion was detected
+        if (body.return_value == true) {
 
-        alarmModule.digitalWrite(5, 1);
+          alarmModule.digitalWrite(5, 1);
 
-      }
-      else if (body.return_value == false) {
+        }
+        else if (body.return_value == false) {
 
-        alarmModule.digitalWrite(5, 0);
+          alarmModule.digitalWrite(5, 0);
 
+        }
       }
 
     });
 
   }
   
-}, 1000);
+}, 2000);
 
 // Start server
 app.listen(3000, function () {

@@ -27,7 +27,7 @@ function createImageLayer() {
   img.style.zIndex = -1;
   img.onload = imageOnload;
   img.onclick = imageOnclick;
-  img.src = "http://localhost:8080/?action=snapshot&n=" + (++imageNr);
+  img.src = "http://192.168.0.102:8080/?action=snapshot&n=" + (++imageNr);
   var webcam = document.getElementById("webcam");
   webcam.insertBefore(img, webcam.firstChild);
 }
@@ -72,7 +72,7 @@ function imageOnclick() { // Clicking on the image will pause the stream
     <div class='col-md-7'>
       <div id="webcam">
         <noscript>
-          <img src="http://localhost:8080/?action=snapshot" />
+          <img src="http://192.168.0.102:8080/?action=snapshot" />
         </noscript>
       </div>
     </div>
