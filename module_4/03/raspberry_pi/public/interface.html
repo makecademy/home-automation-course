@@ -28,7 +28,7 @@ function createImageLayer() {
   img.style.width = "100%";
   img.onload = imageOnload;
   img.onclick = imageOnclick;
-  img.src = "http://192.168.0.102:8080/?action=snapshot&n=" + (++imageNr);
+  img.src = "http://192.168.0.105:8080/?action=snapshot&n=" + (++imageNr);
   var webcam = document.getElementById("webcam");
   webcam.insertBefore(img, webcam.firstChild);
 }
