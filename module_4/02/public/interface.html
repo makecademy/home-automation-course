@@ -25,6 +25,7 @@ function createImageLayer() {
   var img = new Image();
   img.style.position = "absolute";
   img.style.zIndex = -1;
+  img.style.width = "100%";
   img.onload = imageOnload;
   img.onclick = imageOnclick;
   img.src = "http://192.168.0.105:8080/?action=snapshot&n=" + (++imageNr);
