@@ -17,7 +17,7 @@ var opts = {
 var Webcam = NodeWebcam.create( opts );
 
 // Token
-var ACCESS_TOKEN = "vRKUx36ee7sAAAAAAABRrhWtpa5Hgw_KPUjWb_3Ap7IhCvCJNXXUm_DK7mE6OFUZ";
+var ACCESS_TOKEN = "";
 
 // Dropbox object
 var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
