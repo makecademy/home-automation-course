@@ -2,6 +2,13 @@
 var Dropbox = require('dropbox');
 var fs = require('fs');
 var NodeWebcam = require( "node-webcam" );
+var rpio = require('rpio');
+
+// Init rpio
+var options = {
+  mapping: 'gpio'
+}
+rpio.init(options); 
 
 // Webcam
 var opts = {
@@ -22,26 +29,35 @@ var ACCESS_TOKEN = "";
 // Dropbox object
 var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
 
-var pictureName = ( new Date() ).toISOString() + '.jpg';
-Webcam.capture( pictureName, function(location) {
- 
-    console.log( "Image created!" );
+// Check pin
+setInterval(function() {
 
-    fs.readFile( __dirname + '/' + pictureName, function (err, file) {
-      if (err) {
-        throw err; 
-      }
+  rpio.open(4, rpio.INPUT);
+  if (rpio.read(4)) {
 
-      // Upload
-      dbx.filesUpload({path: '/' + pictureName, contents: file}, function (err, response) {
+    // Take picture
+    var pictureName = ( new Date() ).toISOString() + '.jpg';
+    Webcam.capture( pictureName, function(location) {
+     
+        console.log( "Image created!" );
 
-        console.log(err);
-        console.log(response);
+        fs.readFile( __dirname + '/' + pictureName, function (err, file) {
+          if (err) {
+            throw err; 
+          }
 
-      });
+          // Upload
+          dbx.filesUpload({path: '/' + pictureName, contents: file}, function (err, response) {
+
+            console.log(err);
+            console.log(response);
+
+          });
+
+        });
 
     });
 
-});
+  }
 
-
+}, 2000);
