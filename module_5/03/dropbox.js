@@ -32,8 +32,8 @@ var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
 // Check pin
 setInterval(function() {
 
-  rpio.open(4, rpio.INPUT);
-  if (rpio.read(4)) {
+  rpio.open(18, rpio.INPUT);
+  if (rpio.read(18) == 1) {
 
     // Take picture
     var pictureName = ( new Date() ).toISOString() + '.jpg';
