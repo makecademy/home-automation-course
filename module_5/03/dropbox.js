@@ -14,28 +14,26 @@ var opts = {
     verbose: true
 }
  
-var cam = new Webcam( opts );
+var Webcam = NodeWebcam.create( opts );
 
 // Token
-var ACCESS_TOKEN = "dropboxToken";
+var ACCESS_TOKEN = "vRKUx36ee7sAAAAAAABRrhWtpa5Hgw_KPUjWb_3Ap7IhCvCJNXXUm_DK7mE6OFUZ";
 
 // Dropbox object
 var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
 
-var pictureName = ( new Date() ).toString();
-NodeWebcam.capture( pictureName, {}, function(folder) {
+var pictureName = ( new Date() ).toISOString() + '.jpg';
+Webcam.capture( pictureName, function(location) {
  
     console.log( "Image created!" );
-    console.log(folder);
 
-    fs.readFile( __dirname + '/' + pictureName + 'jpg', function (err, file) {
+    fs.readFile( __dirname + '/' + pictureName, function (err, file) {
       if (err) {
         throw err; 
       }
-      console.log(file.toString());
 
       // Upload
-      dbx.filesUpload({path: '/' + pictureName + 'jpg', contents: file}, function (err, response) {
+      dbx.filesUpload({path: '/' + pictureName, contents: file}, function (err, response) {
 
         console.log(err);
         console.log(response);
