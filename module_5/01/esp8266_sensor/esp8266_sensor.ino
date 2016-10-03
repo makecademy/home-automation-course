@@ -18,8 +18,8 @@ aREST rest = aREST();
 DHT dht(DHTPIN, DHTTYPE, 15);
 
 // WiFi parameters
-const char* ssid = "Jarex_5A";
-const char* password = "connect1337";
+const char* ssid = "wifi-name";
+const char* password = "wifi-pass";
 
 // The port to listen for incoming TCP connections
 #define LISTEN_PORT           80

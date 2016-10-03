@@ -9,7 +9,7 @@
 aREST rest = aREST();
 
 // Pin
-#define DHTPIN 4
+#define DHTPIN 5
 
 // Use DHT11 sensor
 #define DHTTYPE DHT11
@@ -18,8 +18,8 @@ aREST rest = aREST();
 DHT dht(DHTPIN, DHTTYPE, 15);
 
 // WiFi parameters
-const char* ssid = "your-wifi-ssid";
-const char* ssid = "your-wifi-password";
+const char* ssid = "your-wifi-name";
+const char* password = "your-wifi-pass";
 
 // The port to listen for incoming TCP connections
 #define LISTEN_PORT           80
